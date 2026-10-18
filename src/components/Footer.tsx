@@ -15,7 +15,7 @@ export const footer: react.FC =() => {
         </div>
 
         <p className="text-[#B9B0A6] text-sm">
-            &copy; {new Data ().getFullYear()} Tandoori restaurant.All rights reserved.
+            &copy; {new Date().getFullYear()} Tandoori Restaurant. All rights reserved.
             </p>
 
             <div className="flex gap-6 text-sm text-[#B9B0A6]">

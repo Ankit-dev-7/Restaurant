@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight,MapPin} from 'Lucide-react';
+import { ChevronRight, MapPin } from 'lucide-react';
 
 export const Hero: React.FC =() => {
 return(

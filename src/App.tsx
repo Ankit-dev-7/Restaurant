@@ -5,7 +5,7 @@ import { Menu } from './components/Menu';
 import { SignatureDishes } from './components/SignatureDishes';
 import { Gallery } from './components/Gallery';
 import { review as Reviews } from './components/Reviews';
-import { locationContact as LocationContact } from './components/LocationContact';
+import { locationContact as LocationContact } from './components/Locationcontact';
 import { footer as Footer } from './components/Footer';
 
 export function App() {
