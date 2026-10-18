@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
 
     const navLinks=[
         {name: 'Home', href:'#'},
-        {name: 'Menu', href: '#Menu'},
+        {name: 'Menu', href: '#menu'},
         {name: 'Signature Dishes', href: '#signature'},
         {name: 'Gallery', href:'#gallery'},
         {name: 'Reviews',href:'#reviews'},
@@ -101,4 +101,3 @@ export const Navbar: React.FC = () => {
       </header>
     );
 };
-

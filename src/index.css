@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
@@ -8,16 +10,16 @@ html {
   body {
     background-color: #151311;
     color: #F8F3EC;
-    font-family: 'Plus jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-serif{
-    font-family:'Cinzel', serif;
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: 'Cinzel', serif;
   }
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 8px;
 }
 
@@ -25,11 +27,11 @@ html {
   background: #0D0C0B;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: #39332F;
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
   background: #E87532;
 }
