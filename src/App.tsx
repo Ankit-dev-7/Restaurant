@@ -1,4 +1,6 @@
-import { Layout } from './components/Layout';
+import React from 'react';
+import { CartProvider } from './context/CartContext';
+import { CartDrawer } from './components/CartDrawer';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Menu } from './components/Menu';
@@ -10,16 +12,21 @@ import { footer as Footer } from './components/Footer';
 
 export function App() {
   return (
-    <Layout>
-      <Navbar />
-      <Hero />
-      <Menu />
-      <SignatureDishes />
-      <Gallery />
-      <Reviews />
-      <LocationContact />
-      <Footer />
-    </Layout>
+    <CartProvider>
+      <div className="min-h-screen bg-[#151311] text-[#F8F3EC] selection:bg-[#E87532] selection:text-[#F8F3EC]">
+        <Navbar />
+        <main>
+          <Hero />
+          <Menu />
+          <SignatureDishes />
+          <Gallery />
+          <Reviews />
+          <LocationContact />
+        </main>
+        <Footer />
+        <CartDrawer />
+      </div>
+    </CartProvider>
   );
 }
 
