@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { menuCategories } from '../data/menu';
-import { Utensils } from 'lucide-react';
+import { Plus, Utensils } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 export const Menu: React.FC = () => {
     const [activeCategory, setActiveCategory] = useState(menuCategories[0].id);
+    const { addItem } = useCart();
     
     const currentCategoryData = menuCategories.find((cat) => cat.id === activeCategory) || menuCategories[0];
 
@@ -45,9 +47,9 @@ export const Menu: React.FC = () => {
 
         {/* Menu Items Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
-          {currentCategoryData.items.map((item, index) => (
+          {currentCategoryData.items.map((item) => (
             <div
-              key={index}
+              key={`${currentCategoryData.id}-${item.name}`}
               className="p-6 rounded-xl bg-[#151311]/90 border border-[#39332F]/80 hover:border-[#E87532]/50 transition-all duration-300 flex items-center justify-between group shadow-md"
             >
               <div className="pr-4">
@@ -69,16 +71,28 @@ export const Menu: React.FC = () => {
                   )}
                 </div>
               </div>
-              <div className="text-right flex-shrink-0">
+              <div className="text-right flex-shrink-0 flex flex-col items-end gap-3">
                 <span className="text-[#E87532] font-bold text-base md:text-lg tracking-wider">
                   {item.price}
-                  </span>
-                  </div>
-                  </div>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => addItem({
+                    id: `${currentCategoryData.id}-${item.name}`,
+                    name: item.name,
+                    price: Number(item.price.replace(/[^\d.]/g, '')),
+                  })}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#E87532]/50 px-3 py-2 text-xs font-semibold text-[#F8F3EC] transition-colors hover:bg-[#E87532] hover:border-[#E87532]"
+                  aria-label={`Add ${item.name} to cart`}
+                >
+                  <Plus className="w-4 h-4" />
+                  Add
+                </button>
+              </div>
+            </div>
           ))}
-          </div>
-          </div>
-          </section>
+        </div>
+      </div>
+    </section>
   );
 };
-

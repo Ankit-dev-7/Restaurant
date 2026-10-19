@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
           aria-label="Open cart">
             <ShoppingBag className="w-5 h-5"/>
             {totalQuantity > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg=[#F8F3EC] text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-[#0D0C0B] shadow-md">
+              <span className="absolute -top-1.5 -right-1.5 bg-[#E87532] text-[#F8F3EC] text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#0D0C0B] shadow-md">
                 {totalQuantity}
               </span>
             )}
@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="text-[#F8F3EC] p-2 focus:outline-none"
           aria-label="Toggle Menu">
-            {mobileMenuOpen ? <X className="w-6 h-6 text=[#E87532]"/> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-[#E87532]"/> : <Menu className="w-6 h-6" />}
           </button>
           </div>
       </div>
