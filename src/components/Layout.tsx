@@ -11,7 +11,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div 
         className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-25 filter brightness-75 contrast-125"
         style={{
-          backgroundImage: "url('/images/tandoori-background.png')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/tandoori-background.png')`,
         }}
       />
       {/* Radial vignette overlay for cinematic tone */}

@@ -1,10 +1,12 @@
 import type { FC } from 'react';
 import { Camera } from 'lucide-react';
 
+const imageBaseUrl = `${import.meta.env.BASE_URL}images/`;
+
 const galleryPhotos = [
-  { src: '/images/pic%201.webp', alt: 'Restaurant dish from the gallery' },
-  { src: '/images/pic%202.webp', alt: 'Freshly prepared restaurant dish' },
-  { src: '/images/pic%203.jpg', alt: 'Tandoori restaurant food' },
+  { src: `${imageBaseUrl}pic%201.webp`, alt: 'Restaurant dish from the gallery' },
+  { src: `${imageBaseUrl}pic%202.webp`, alt: 'Freshly prepared restaurant dish' },
+  { src: `${imageBaseUrl}pic%203.jpg`, alt: 'Tandoori restaurant food' },
 ];
 
 export const Gallery: FC = () => {

@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group">
           <img
-            src="/images/Logo.png"
+            src={`${import.meta.env.BASE_URL}images/Logo.png`}
             alt=""
             className="w-14 h-14 object-contain brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
           />
