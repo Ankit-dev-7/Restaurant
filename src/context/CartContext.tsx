@@ -65,7 +65,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
           basePrice: dish.price,
           unitPrice,
           quantity: 1,
-          customizations: customizations ?? ({} as SelectedCustomizations),
+          customizations: customizations ?? {},
         },
       ];
     });

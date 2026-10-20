@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, UtensilsCrossed, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export const Navbar: React.FC = () => {
@@ -38,9 +38,11 @@ export const Navbar: React.FC = () => {
       }`}>
        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 flex items-center justify-center text-[#E87532] group-hover:bg-[#E87532] group-hover:text-[#F8F3EC] transition-all duration-300">
-            <UtensilsCrossed className="w-5 h-5" />
-          </div>
+          <img
+            src="/images/Logo.png"
+            alt=""
+            className="w-14 h-14 object-contain brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
+          />
           <span className="font-serif text-xl md:text-2xl font-bold tracking-wider text-[#F8F3EC]">
             TANDOORI <span className="text-[#E87532]">RESTAURANT</span>
           </span>

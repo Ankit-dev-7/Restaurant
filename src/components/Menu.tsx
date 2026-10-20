@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { menuCategories } from '../data/menu';
+import { MenuItem, menuCategories } from '../data/menu';
 import { Plus, Utensils } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { MenuActions } from './MenuActions';
+import { DishCustomizationModal } from './DishCustomizationModal';
 
 export const Menu: React.FC = () => {
     const [activeCategory, setActiveCategory] = useState(menuCategories[0].id);
+    const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
     const { addItem } = useCart();
     
     const currentCategoryData = menuCategories.find((cat) => cat.id === activeCategory) || menuCategories[0];
+    const hasCustomizations = (item: MenuItem) =>
+      Boolean(item.customization?.sizes?.length || item.customization?.spiceLevels?.length || item.customization?.extras?.length);
 
   return (
     <section id="menu" className="py-24 px-6 md:px-12 bg-[#0D0C0B]/60 relative z-10 border-t border-[#39332F]/40">
@@ -77,22 +82,40 @@ export const Menu: React.FC = () => {
                 </span>
                 <button
                   type="button"
-                  onClick={() => addItem({
-                    id: `${currentCategoryData.id}-${item.name}`,
-                    name: item.name,
-                    price: Number(item.price.replace(/[^\d.]/g, '')),
-                  })}
+                  onClick={() => {
+                    if (hasCustomizations(item)) {
+                      setSelectedDish(item);
+                      return;
+                    }
+                    addItem({ id: item.id, name: item.name, price: item.numericPrice });
+                  }}
                   className="inline-flex items-center gap-1.5 rounded-lg border border-[#E87532]/50 px-3 py-2 text-xs font-semibold text-[#F8F3EC] transition-colors hover:bg-[#E87532] hover:border-[#E87532]"
-                  aria-label={`Add ${item.name} to cart`}
+                  aria-label={`${hasCustomizations(item) ? 'Customize' : 'Add'} ${item.name}`}
                 >
                   <Plus className="w-4 h-4" />
-                  Add
+                  {hasCustomizations(item) ? 'Customize' : 'Add'}
                 </button>
               </div>
             </div>
           ))}
         </div>
+        <MenuActions />
       </div>
+      {selectedDish && (
+        <DishCustomizationModal
+          dish={selectedDish}
+          isOpen
+          onClose={() => setSelectedDish(null)}
+          onAddToCart={(customizations, finalUnitPrice) => {
+            addItem(
+              { id: selectedDish.id, name: selectedDish.name, price: selectedDish.numericPrice },
+              customizations,
+              finalUnitPrice
+            );
+            setSelectedDish(null);
+          }}
+        />
+      )}
     </section>
   );
 };

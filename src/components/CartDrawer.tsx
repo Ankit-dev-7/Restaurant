@@ -10,7 +10,7 @@ export const CartDrawer: React.FC =() => {
         updateQuantity,
         removeItem,
     } = useCart();
-    const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
+    const subtotal = items.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
 
     useEffect(() => {
         const handleKeyDown =(e:KeyboardEvent) => {
@@ -61,18 +61,18 @@ export const CartDrawer: React.FC =() => {
                                     ): (
                                         items.map((item) => (
                                             <div
-                                            key={item.id}
+                                            key={item.cartItemId}
                                             className="p-4 rounded-xl bg-[#151311] border border-[#39332F] flex items-center justify-between gap-4">
                                                 <div className="flex-1">
                                                     <h3 className="font-serif font-semibold text-[#F8F3EC] text-sm">{item.name}</h3>
                                                     <p className="text-xs text-[#E87532] mt-1 font-semibold">
-                                                        NPR {item.price.toFixed(2)}
+                                                        NPR {item.unitPrice.toFixed(2)}
                                                     </p>
                                                     </div>
 
                                                     <div className="flex items-center gap-2 bg-[#0D0C0B] border border-[#39332F] rounded-lg p-1">
                                                         <button
-                                                        onClick={() => updateQuantity(item.id, item.quantity-1)}
+                                                        onClick={() => updateQuantity(item.cartItemId, item.quantity-1)}
                                                         className="p-1 hover:text-[#E87532] transition-colors"
                                                         aria-label="Decrease quantity"
                                                         >
@@ -82,7 +82,7 @@ export const CartDrawer: React.FC =() => {
                                                             {item.quantity}
                                                         </span>
                                                         <button
-                                                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                        onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
                                                         className="p-1 hover:text-[#E87532] transition-colors"
                                                         aria-label="Increase quantity">
                                                             <Plus className="w-3.5 h-3.5" />
@@ -90,7 +90,7 @@ export const CartDrawer: React.FC =() => {
                                                         </div>
 
                                                         <button
-                                                        onClick={() => removeItem(item.id)}
+                                                        onClick={() => removeItem(item.cartItemId)}
                                                         className="text-[#B9B0A6] hover:text-red-400 transition-colors p-1"
                                                         aria-label="Remove item">
                                                             <Trash2 className="w-4 h-4"/>

@@ -6,19 +6,19 @@ export const SignatureDishes: React.FC = () => {
     {
       name: 'Butter Chicken',
       description: 'Tender tandoori chicken simmered in a rich, velvety tomato and butter gravy.',
-      price: 'NPR 400.00 (Qtr) / NPR 1,550.00 (Full)',
+      prices: ['Qtr — NPR 400.00', 'Full — NPR 1,550.00'],
       badge: 'Chef special',
     },
     {
       name: 'Chicken Tikka Biryani',
       description: 'Aromatic basmati rice layered with spiced chicken tikka, herbs, and saffron.',
-      price: 'NPR 500.00',
+      prices: ['NPR 500.00'],
       badge: 'Bestseller',
     },
     {
       name: 'Garlic Butter Naan',
       description: 'Fresh tandoori bread baked to perfection, brushed with rich garlic and melted butter.',
-      price: 'NPR 150.00',
+      prices: ['NPR 150.00'],
       badge: 'Traditional favourite',
     },
   ];
@@ -58,9 +58,17 @@ export const SignatureDishes: React.FC = () => {
                   {dish.description}
                 </p>
               </div>
-              <div className="pt-4 border-t border-[#39332F]/60 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider text-[#B9B0A6]">Price</span>
-                <span className="text-[#E87532] font-bold text-base">{dish.price}</span>
+              <div className="pt-4 border-t border-[#39332F]/60">
+                <span className="mb-2 block text-xs uppercase tracking-wider text-[#B9B0A6]">
+                  Price
+                </span>
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  {dish.prices.map((price) => (
+                    <span key={price} className="text-sm font-bold leading-relaxed text-[#E87532]">
+                      {price}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

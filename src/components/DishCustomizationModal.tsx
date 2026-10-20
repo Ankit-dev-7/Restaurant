@@ -1,6 +1,7 @@
-import React,{ useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, Check, Sliders } from 'lucide-react';
-import {MenuItem, SelectCustomizations } from '../types';
+import { MenuItem } from '../data/menu';
+import { SelectCustomizations } from '../types';
 
 interface DishCustomizationModalProps {
     dish: MenuItem;
@@ -18,22 +19,28 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
     const [selectedSize, setSelectedSize] = useState(
         dish.customization?.sizes ? dish.customization.sizes[0] : undefined
     );
-    const [selectedspice, setSelectedSpice] = useState(
-        dish.customization?.spicelevels?.[1] ?? dish.customization?.spicelevels?.[0]
+    const [selectedSpice, setSelectedSpice] = useState(
+        dish.customization?.spiceLevels?.[1] ?? dish.customization?.spiceLevels?.[0]
     );
-    const [selectedExtras, setselectedExtras] = useState<{ id:string; name:string; priceDelta: number }[]>([]);
+    const [selectedExtras, setSelectedExtras] = useState<{ id: string; name: string; priceDelta: number }[]>([]);
+
+    useEffect(() => {
+        setSelectedSize(dish.customization?.sizes?.[0]);
+        setSelectedSpice(dish.customization?.spiceLevels?.[1] ?? dish.customization?.spiceLevels?.[0]);
+        setSelectedExtras([]);
+    }, [dish]);
 
     if (!isOpen) return null;
     
     const sizeDelta = selectedSize?.priceDelta || 0;
-    const extrasDelta = selectedExtras.reduce((sum, extra)=> sum + extra.priceDelta, 0);
-    const finalUnitPrice= dish.price + sizeDelta + extrasDelta;
+    const extrasDelta = selectedExtras.reduce((sum, extra) => sum + extra.priceDelta, 0);
+    const finalUnitPrice = dish.numericPrice + sizeDelta + extrasDelta;
 
-    const toggleExtra =(extra: { id:string; name: string; priceDelta: number }) => {
+    const toggleExtra = (extra: { id: string; name: string; priceDelta: number }) => {
         if (selectedExtras.some((e)=> e.id === extra.id)) {
-            setselectedExtras(selectedExtras.filter((e)=> e.id !== extra.id ));
+            setSelectedExtras(selectedExtras.filter((e) => e.id !== extra.id ));
         } else {
-            setselectedExtras([...selectedExtras, extra]);
+            setSelectedExtras([...selectedExtras, extra]);
         }
     };
 
@@ -41,7 +48,7 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
         onAddToCart(
             {
                 size: selectedSize,
-                spiceLevel: selectedspice,
+                spiceLevel: selectedSpice,
                 extras: selectedExtras,
             },
             finalUnitPrice
@@ -50,26 +57,26 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
     };
 
     return (
-        <div className="fixed insert-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blu-md animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
             <div className="relative w-full max-w-lg bg-[#0D0C0B] border border-[#39332F] rounded-2xl shadow-2xl overflow-hidden text-[#F8F3EC]">
 
                 <div className="flex items-center justify-between px-6 py-4 border-b border-[#39332F] bg-[#151311]">
                     <div className="flex items-center gap-2">
-                        <Sliders className="w-5 h-5 text=[#E87532]" />
+                        <Sliders className="w-5 h-5 text-[#E87532]" />
                         <h3 className="font-serif text-lg font-bold">Customize {dish.name}</h3>
                         </div>
                         <button
                         onClick={onClose}
-                        className="p-1.5 rounded-full text=[#B9B0A6] hover:text-[#F8F3EC] hover:bg=[#39332F]/50 transition-colors"
+                        className="p-1.5 rounded-full text-[#B9B0A6] hover:text-[#F8F3EC] hover:bg-[#39332F]/50 transition-colors"
                         aria-label="Close modal">
                             <X className="w-5 h-5" />
                         </button>
                         </div>
 
                         <div className="p-6 max-h-[70vh] overflow-y-auto space-y-6">
-                            <p className="text-sm text=[#B9B0A6]">{dish.description}</p>
+                            {dish.description && <p className="text-sm text-[#B9B0A6]">{dish.description}</p>}
                             <div className="text-sm font-semibold text-[#E87532]">
-                                Base Price: NPR {dish.price.toFixed(2)}
+                                Base Price: NPR {dish.numericPrice.toFixed(2)}
                             </div>
 
                             {dish.customization?.sizes && dish.customization.sizes.length > 0 && (
@@ -100,14 +107,14 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
               </div>
             </div>
           )}
-          {dish.customization?.spicelevels && dish.customization.spicelevels.length > 0 && (
+          {dish.customization?.spiceLevels && dish.customization.spiceLevels.length > 0 && (
             <div className="space-y-3">
               <label className="block text-xs uppercase tracking-widest text-[#B9B0A6] font-semibold">
                 Spice Level 🌶️
               </label>
               <div className="flex flex-wrap gap-2">
-                {dish.customization.spicelevels.map((level) => {
-                  const isSelected = selectedspice === level;
+                {dish.customization.spiceLevels.map((level) => {
+                  const isSelected = selectedSpice === level;
                   return (
                     <button
                       key={level}

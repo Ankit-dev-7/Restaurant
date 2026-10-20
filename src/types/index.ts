@@ -27,7 +27,7 @@ export interface SelectCustomizations {
 }
 
 export interface selectedCustomizations {
-    size:{ id:string; name: string; priceDelta: number };
+    size?:{ id:string; name: string; priceDelta: number };
     spiceLevel?: string;
     extras?: {id: string; name:string; priceDelta: number}[];
 }
@@ -41,4 +41,3 @@ export interface CartItem {
     quantity: number;
     customizations: selectedCustomizations;
 }
-
