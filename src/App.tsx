@@ -1,4 +1,5 @@
 import React from 'react';
+import { LanguageProvider } from './context/Languagecontext';
 import { CartProvider } from './context/CartContext';
 import { CartDrawer } from './components/CartDrawer';
 import { Layout } from './components/Layout';
@@ -14,24 +15,26 @@ import { footer as Footer } from './components/Footer';
 
 export function App() {
   return (
-    <CartProvider>
-      <Layout>
-        <div className="min-h-screen text-[#F8F3EC] selection:bg-[#E87532] selection:text-[#F8F3EC]">
-          <Navbar />
-          <main>
-            <Hero />
-            <Menu />
-            <SignatureDishes />
-            <Gallery />
-            <Reviews />
-            <Offers />
-            <LocationContact />
-          </main>
-          <Footer />
-          <CartDrawer />
-        </div>
-      </Layout>
-    </CartProvider>
+    <LanguageProvider>
+      <CartProvider>
+        <Layout>
+          <div className="min-h-screen text-[#F8F3EC] selection:bg-[#E87532] selection:text-[#F8F3EC]">
+            <Navbar />
+            <main>
+              <Hero />
+              <Menu />
+              <SignatureDishes />
+              <Gallery />
+              <Reviews />
+              <Offers />
+              <LocationContact />
+            </main>
+            <Footer />
+            <CartDrawer />
+          </div>
+        </Layout>
+      </CartProvider>
+    </LanguageProvider>
   );
 }
 
