@@ -1,5 +1,23 @@
-Tandoori Restaurant
+Tandoori Restaurant 
 
-A modern, responsive web application for an authentic Tandoori & Fine Nepali Cuisine restaurant. Built with React, TypeScript, and Tailwind CSS, featuring interactive menu customizations, a persistent cart, and downloadable menus.
+About the Project
+Tandoori Restaurant is a modern, responsive website designed to showcase a restaurant's menu and provide a smooth browsing experience. It features vegetarian and non-vegetarian dishes, dish customization, and a shopping cart.
+
+Features
+- Food menu with veg and non-veg options
+- Shopping cart to add and manage dishes
+- Dish customization
+- QR code menu for easy access
+- English and Nepali language switcher
+- Responsive design for desktop and mobile
+
+Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+Limitations
+This is a frontend-only project. It does not support real online payments or server-side order processing.
+
 
 Live Demo: https://ankit-dev-7.github.io/Restaurant/
