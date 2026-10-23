@@ -22,7 +22,6 @@ export const SignatureDishes: React.FC = () => {
       badge: 'Traditional favourite',
     },
   ];
-
   return (
     <section id="signature" className="py-24 px-6 md:px-12 bg-[#151311] relative z-10 border-[#39332F]/40">
       <div className="max-w-6xl mx-auto">
@@ -40,13 +39,11 @@ export const SignatureDishes: React.FC = () => {
             Hand-selected culinary specialties loved by our regular patrons.
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {highlights.map((dish, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl bg-[#0D0C0B]/80 border border-[#39332F] hover:border-[#E87532]/60 transition-all duration-300 flex flex-col justify-between group shadow-xl"
-            >
+              className="p-8 rounded-2xl bg-[#0D0C0B]/80 border border-[#39332F] hover:border-[#E87532]/60 transition-all duration-300 flex flex-col justify-between group shadow-xl">
               <div>
                 <span className="inline-block px-3 py-1 rounded text-xs font-semibold bg-[#E87532]/15 text-[#E87532] border border-[#E87532]/30 mb-4">
                   {dish.badge}
@@ -77,6 +74,7 @@ export const SignatureDishes: React.FC = () => {
     </section>
   );
 };
+
 
 
  

@@ -1,7 +1,6 @@
 import { SignatureDishes } from "../components/SignatureDishes";
 
 export type Language ='en' | 'ne';
-
 export interface Translations {
     nav:{
         home: string;
@@ -50,7 +49,6 @@ export interface Translations {
         close: string;
     };
 }
-
 export const translations: Record<Language, Translations> ={
     en:{
         nav:{
@@ -149,7 +147,6 @@ export const translations: Record<Language, Translations> ={
     },
   },
 };
-
 export const getStoredLanguage =(): Language => {
     try{
         const saved= localStorage.getItem('tandoori_lang');
@@ -158,7 +155,6 @@ export const getStoredLanguage =(): Language => {
         return 'en';
     }
 };
-
 export const setStoredLanguage =(lang: Language): void=>{
     try{
         localStorage.setItem('tandoori_lang', lang);

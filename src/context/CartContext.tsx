@@ -12,7 +12,6 @@ interface CartContextType {
   totalQuantity: number;
   subtotal: number;
 }
-
 const CartContext = createContext<CartContextType | undefined>(undefined);
 const generateCartItemId = (dishId: string, customizations?: SelectedCustomizations) => {
   if (!customizations) return `${dishId}_default`;
@@ -21,7 +20,6 @@ const generateCartItemId = (dishId: string, customizations?: SelectedCustomizati
   const extrasKey = customizations.extras ? customizations.extras.map(e => e.id).sort().join(',') : 'none';
   return `${dishId}_${sizeKey}_${spiceKey}_${extrasKey}`;
 };
-
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
     try {
@@ -31,9 +29,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return [];
     }
   });
-
   const [isCartOpen, setIsCartOpen] = useState(false);
-
   useEffect(() => {
     try {
       localStorage.setItem('tandoori_cart', JSON.stringify(items));
@@ -41,14 +37,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Failed to save cart to localStorage', e);
     }
   }, [items]);
-
   const addItem = (
     dish: { id: string; name: string; price: number },
     customizations?: SelectedCustomizations,
     customUnitPrice?: number) => {
     const unitPrice = customUnitPrice !== undefined ? customUnitPrice : dish.price;
     const cartItemId = generateCartItemId(dish.id, customizations);
-
     setItems((prev) => {
       const existing = prev.find((item) => item.cartItemId === cartItemId);
       if (existing) {
@@ -70,11 +64,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       ];
     });
   };
-
   const removeItem = (cartItemId: string) => {
     setItems((prev) => prev.filter((item) => item.cartItemId !== cartItemId));
   };
-
   const updateQuantity = (cartItemId: string, quantity: number) => {
     if (quantity <= 0) {
       removeItem(cartItemId);
@@ -84,12 +76,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       prev.map((item) => (item.cartItemId === cartItemId ? { ...item, quantity } : item))
     );
   };
-
   const clearCart = () => setItems([]);
-
   const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
-
   return (
     <CartContext.Provider
       value={{
@@ -107,7 +96,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     </CartContext.Provider>
   );
 };
-
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
@@ -115,3 +103,4 @@ export const useCart = () => {
   }
   return context;
 };
+

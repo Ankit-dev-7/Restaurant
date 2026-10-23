@@ -3,13 +3,11 @@ export interface CustomizationOption{
     name: string;
     priceDelta: number;
 }
-
 export interface DishCustomizationConfig {
     sizes?: CustomizationOption [];
     spicelevels?: string[];
     extras?: CustomizationOption[];
 }
-
 export interface MenuItem{
     id: string;
     name: string;
@@ -19,19 +17,16 @@ export interface MenuItem{
     image?: boolean;
     customization?: DishCustomizationConfig;
 }
-
 export interface SelectCustomizations {
     size?: {id: string; name: string; priceDelta: number};
     spiceLevel?: string;
     extras?: {id: string; name: string; priceDelta: number} [];
 }
-
 export interface selectedCustomizations {
     size?:{ id:string; name: string; priceDelta: number };
     spiceLevel?: string;
     extras?: {id: string; name:string; priceDelta: number}[];
 }
-
 export interface CartItem {
     id: string;
     cartItemId: string;
@@ -41,3 +36,5 @@ export interface CartItem {
     quantity: number;
     customizations: selectedCustomizations;
 }
+
+

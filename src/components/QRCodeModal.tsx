@@ -7,13 +7,11 @@ interface QRCodeModalProps{
     isOpen: boolean;
     onClose: () => void;
 }
-
 export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
     const { t} = useLanguage();
     const [qrUrl, setQrUrl]= useState<string>('');
     const printRef = useRef<HTMLDivElement>(null);
     const productionUrl ='https://ankit-dev-7.github.io/Restaurant/#menu';
-
     useEffect(()=>{
         if (isOpen){
             QRCode.toDataURL(productionUrl,{
@@ -29,7 +27,6 @@ export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
         }
     }, [isOpen]);
     if(!isOpen) return null;
-
     const handleDownload=() => {
         if (!qrUrl) return;
         const link = document.createElement('a');
@@ -42,7 +39,6 @@ export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
     const handlePrint =() => {
         const printWindow= window.open ('', '_blank');
         if(!printWindow) return;
-
         printWindow.document.write(`
             <!DOCTYPE html>
             <html>
@@ -94,14 +90,12 @@ export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
           className="absolute right-4 top-4 rounded-lg p-1 text-gray-400 hover:bg-white/10 hover:text-white">
             <X className="h-5 w-5" />
           </button>
-
           <div className="text-center" ref={printRef}>
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
             <QrCode className="h-6 w-6" />
             </div>
             <h3 className="text-xl font=bold text-white">{t.qrModal.title}</h3>
             <p className="mt-1 text-sm text-gray-400">{t.qrModal.instruction}</p>
-
             <div className="my-5 flex justify-center">
                 {qrUrl ?(
                     <div className="rounded-xl bg-white p-3 shadow-inner">
@@ -114,7 +108,6 @@ export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
                 )}    
                 </div>
             </div>
-
             <div className="mt-6 flex flex-col gap-2 sm:flex-row">
                 <button
                 onClick={handleDownload}
@@ -127,3 +120,4 @@ export const QRCodemodal: React.FC<QRCodeModalProps> =({ isOpen, onClose}) =>{
                 </div>
     );
     };
+    

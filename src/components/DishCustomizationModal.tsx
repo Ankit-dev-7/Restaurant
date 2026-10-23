@@ -9,7 +9,6 @@ interface DishCustomizationModalProps {
     onClose: () => void;
     onAddToCart: (customizations: SelectCustomizations, finalUnitPrice: number) => void;
 }
-
 export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
     dish,
     isOpen,
@@ -29,13 +28,10 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
         setSelectedSpice(dish.customization?.spiceLevels?.[1] ?? dish.customization?.spiceLevels?.[0]);
         setSelectedExtras([]);
     }, [dish]);
-
     if (!isOpen) return null;
-    
     const sizeDelta = selectedSize?.priceDelta || 0;
     const extrasDelta = selectedExtras.reduce((sum, extra) => sum + extra.priceDelta, 0);
     const finalUnitPrice = dish.numericPrice + sizeDelta + extrasDelta;
-
     const toggleExtra = (extra: { id: string; name: string; priceDelta: number }) => {
         if (selectedExtras.some((e)=> e.id === extra.id)) {
             setSelectedExtras(selectedExtras.filter((e) => e.id !== extra.id ));
@@ -43,7 +39,6 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
             setSelectedExtras([...selectedExtras, extra]);
         }
     };
-
     const handleAdd = () => {
         onAddToCart(
             {
@@ -55,11 +50,9 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
         );
         onClose();
     };
-
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
             <div className="relative w-full max-w-lg bg-[#0D0C0B] border border-[#39332F] rounded-2xl shadow-2xl overflow-hidden text-[#F8F3EC]">
-
                 <div className="flex items-center justify-between px-6 py-4 border-b border-[#39332F] bg-[#151311]">
                     <div className="flex items-center gap-2">
                         <Sliders className="w-5 h-5 text-[#E87532]" />
@@ -72,13 +65,11 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
                             <X className="w-5 h-5" />
                         </button>
                         </div>
-
                         <div className="p-6 max-h-[70vh] overflow-y-auto space-y-6">
                             {dish.description && <p className="text-sm text-[#B9B0A6]">{dish.description}</p>}
                             <div className="text-sm font-semibold text-[#E87532]">
                                 Base Price: NPR {dish.numericPrice.toFixed(2)}
                             </div>
-
                             {dish.customization?.sizes && dish.customization.sizes.length > 0 && (
                               <div className="space-y-3">
                                 <label className="block text-xs uppercase tracking-widest text-[#B9B0A6] font-semibold">
@@ -95,8 +86,7 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
                       className={`p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
                         isSelected
                           ? 'border-[#E87532] bg-[#E87532]/10 text-[#F8F3EC]'
-                          : 'border-[#39332F] bg-[#151311] text-[#B9B0A6] hover:border-[#39332F]/80'
-                      }`}>
+                          : 'border-[#39332F] bg-[#151311] text-[#B9B0A6] hover:border-[#39332F]/80'}`}>
                       <span className="text-sm font-medium">{size.name}</span>
                       <span className="text-xs font-semibold text-[#E87532]">
                         {size.priceDelta > 0 ? `+NPR ${size.priceDelta}` : 'Included'}
@@ -147,13 +137,11 @@ export const DishCustomizationModal: React.FC<DishCustomizationModalProps> =({
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
                         isSelected
                           ? 'border-[#E87532] bg-[#E87532]/10 text-[#F8F3EC]'
-                          : 'border-[#39332F] bg-[#151311] text-[#B9B0A6] hover:border-[#39332F]/80'
-                      }`}>
+                          : 'border-[#39332F] bg-[#151311] text-[#B9B0A6] hover:border-[#39332F]/80'}`}>
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-4 h-4 rounded border flex items-center justify-center ${
-                            isSelected ? 'bg-[#E87532] border-[#E87532]' : 'border-[#39332F]'
-                          }`}>
+                            isSelected ? 'bg-[#E87532] border-[#E87532]' : 'border-[#39332F]'}`}>
                           {isSelected && <Check className="w-3 h-3 text-[#F8F3EC]" />}
                         </div>
                         <span className="text-sm">{extra.name}</span>

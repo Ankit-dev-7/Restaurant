@@ -43,7 +43,6 @@ return(
               Get Direction &rarr;
             </span>
           </a>
-
           <div className="p-8 rounded-xl bg-[#151311] border border-[#39332F] shadow-lg flex flex-col items-center text-center">
             <div className="w-12 h-12 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 flex items-center justify-center text-[#E87532] mb-4">
               <Clock className="w-6 h-6" />
@@ -65,7 +64,6 @@ return(
             </p>  
             </div>
             </div>
-
             <div className="w-full h-80 rounded-2xl overfall-hidden border border-[#39332F] shadow-2xl relative">
               <iframe
               title="Tandoori Restaurant Location Map"

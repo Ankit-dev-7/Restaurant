@@ -11,7 +11,6 @@ export const CartDrawer: React.FC =() => {
         removeItem,
     } = useCart();
     const subtotal = items.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-
     useEffect(() => {
         const handleKeyDown =(e:KeyboardEvent) => {
             if (e.key === 'Escape' && isCartOpen) {
@@ -21,18 +20,14 @@ export const CartDrawer: React.FC =() => {
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isCartOpen, setIsCartOpen]);
-
     if(!isCartOpen) return null;
-
     return(
         <div className="fixed inset-0 z-50 overflow-hidden">
             <div
             className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setIsCartOpen(false)} />
-
             <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div className="w-screen max-w-md bg-[#0D0C0B] border-l border-[#39332F] text-[#F8F3EC] shadow-2xl flex flex-col">
-
                     <div className="p-6 border-b border-[#39332F] flex items-center justify-between">
                         <div className="flex items-center gap-2">
                             <ShoppingBag className="w-5 h-5 text-[#E87532]" />
@@ -53,8 +48,7 @@ export const CartDrawer: React.FC =() => {
                                             <a
                                             href="#menu"
                                             onClick={() => setIsCartOpen(false)}
-                                            className="inline-block px-6 py-2.5 rounded-full bg-[#E87532] text-[#F8F3EC] font-semibold text-sm hover:bg-[#B86F45] transition-colors"
-                                            >
+                                            className="inline-block px-6 py-2.5 rounded-full bg-[#E87532] text-[#F8F3EC] font-semibold text-sm hover:bg-[#B86F45] transition-colors">
                                                 Browse Menu 
                                             </a>
                                             </div>
@@ -69,13 +63,11 @@ export const CartDrawer: React.FC =() => {
                                                         NPR {item.unitPrice.toFixed(2)}
                                                     </p>
                                                     </div>
-
                                                     <div className="flex items-center gap-2 bg-[#0D0C0B] border border-[#39332F] rounded-lg p-1">
                                                         <button
                                                         onClick={() => updateQuantity(item.cartItemId, item.quantity-1)}
                                                         className="p-1 hover:text-[#E87532] transition-colors"
-                                                        aria-label="Decrease quantity"
-                                                        >
+                                                        aria-label="Decrease quantity">
                                                             <Minus className="w-3.5 h-3.5"/>
                                                         </button>
                                                         <span className="text-xs font-semibold px-1 w-5 text-center">
@@ -88,7 +80,6 @@ export const CartDrawer: React.FC =() => {
                                                             <Plus className="w-3.5 h-3.5" />
                                                         </button>
                                                         </div>
-
                                                         <button
                                                         onClick={() => removeItem(item.cartItemId)}
                                                         className="text-[#B9B0A6] hover:text-red-400 transition-colors p-1"

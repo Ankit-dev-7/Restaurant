@@ -13,11 +13,9 @@ export const footer: react.FC =() => {
             TANDOORI <span className="text-[#E87532]">RESTAURANT</span>
           </span>
         </div>
-
         <p className="text-[#B9B0A6] text-sm">
             &copy; {new Date().getFullYear()} Tandoori Restaurant. All rights reserved.
             </p>
-
             <div className="flex gap-6 text-sm text-[#B9B0A6]">
                 <a href="#" className="hover:text-[#E87532] transition-colors">Privacy Policy</a>
                 < a href="#" className="hover:text-[#E87532] transition-colors">Terms of services</a>

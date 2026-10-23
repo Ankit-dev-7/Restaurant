@@ -3,13 +3,11 @@ export interface CustomizationOption{
   name:string;
   priceDelta: number;
 } 
-
 export interface DishCustomizationConfig {
   sizes?: CustomizationOption[];
   spiceLevels?: string[];
   extras?: CustomizationOption[];
 }
-
 export interface MenuItem{
   id:string;
   name: string;
@@ -19,13 +17,11 @@ export interface MenuItem{
   isVeg: boolean;
   customization?: DishCustomizationConfig;
 }
-
 export interface MenuCategory {
   id: string;
   title: string;
   items: MenuItem[];
 }
-
 export const menuCategories: MenuCategory[] =[
   {
     id:'curries',
@@ -277,6 +273,7 @@ export const menuCategories: MenuCategory[] =[
     ],
   },
 ];
+
 
 
 

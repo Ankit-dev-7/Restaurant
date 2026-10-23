@@ -36,7 +36,6 @@ export const review: React.FC = () => {
       favoriteDish: 'Mutton Curry & Masala Naan',
     },
   ];
-
   return (
     <section
       id="reviews"
@@ -56,17 +55,14 @@ export const review: React.FC = () => {
           Hear from patrons who have experienced our authentic tandoori preparations and fine dining
           hospitality.
         </p>
-
         <div className="grid grid-cols-1 gap-5 text-left sm:grid-cols-2 xl:grid-cols-4">
           {reviews.map((rev) => (
             <article
               key={rev.name}
-              className="flex min-h-64 flex-col rounded-xl border border-[#39332F]/70 bg-[#1B1815] p-6 transition-colors hover:border-[#E87532]/40"
-            >
+              className="flex min-h-64 flex-col rounded-xl border border-[#39332F]/70 bg-[#1B1815] p-6 transition-colors hover:border-[#E87532]/40">
               <div
                 className="mb-4 flex gap-1 text-[#E87532]"
-                aria-label={`${rev.rating} out of 5 stars`}
-              >
+                aria-label={`${rev.rating} out of 5 stars`}>
                 {Array.from({ length: rev.rating }, (_, index) => (
                   <Star key={index} className="h-4 w-4 fill-current" aria-hidden="true" />
                 ))}
@@ -86,3 +82,4 @@ export const review: React.FC = () => {
     </section>
   );
 };
+

@@ -7,12 +7,9 @@ interface LanguageContextType{
     setLanguage:(lang: Language) => void;
     t: Translations;
 }
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
 export const LanguageProvider: React.FC<{ children: React.ReactNode} >= ({children}) => {
     const[language,setLanguageState]= useState<Language>(getStoredLanguage);
-
     const setLanguage = (lang: Language) => {
         setLanguageState(lang);
         setStoredLanguage(lang);
@@ -24,7 +21,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode} >= ({childr
         </LanguageContext.Provider>
     );
 };
-
 export const useLanguage =(): LanguageContextType => {
     const context =useContext(LanguageContext);
     if(!context) {
