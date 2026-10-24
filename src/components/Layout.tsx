@@ -8,7 +8,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div 
         className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-25 filter brightness-75 contrast-125"
         style={{
-          backgroundImage: `url('${import.meta.env.BASE_URL}images/tandoori-background.png')`,}}/>
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/tandoori-background.jpeg')`,}}/>
       <div className="fixed inset-0 pointer-events-none z-0 bg-radial from-transparent via-[#151311]/70 to-[#0D0C0B]" />
      <div className="relative z-10 flex flex-col min-h-screen">
       {children}
@@ -16,4 +16,3 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
      </div>
   );
 };
-

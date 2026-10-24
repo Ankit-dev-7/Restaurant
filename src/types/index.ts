@@ -36,5 +36,3 @@ export interface CartItem {
     quantity: number;
     customizations: selectedCustomizations;
 }
-
-
