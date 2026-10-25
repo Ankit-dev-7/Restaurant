@@ -25,5 +25,5 @@ Live Demo: https://ankit-dev-7.github.io/Restaurant/
 
 Note:
 
-I wrote the project code myself and used AI tools like ChatGPT for debugging, identifying errors, and helping me understand and fix issues during development. The design, implementation, and final decisions were my own.
+I wrote the project code myself and used AI tools like ChatGPT, Gemini for debugging, identifying errors, and helping me understand and fix issues during development. The design, implementation, and final decisions were my own.
 
