@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
 
 export const SignatureDishes: React.FC = () => {
   const highlights = [
@@ -26,12 +25,6 @@ export const SignatureDishes: React.FC = () => {
     <section id="signature" className="py-24 px-6 md:px-12 bg-[#151311] relative z-10 border-[#39332F]/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#E87532]" />
-            <span className="text-xs uppercase tracking-widest text-[#E87532] font-semibold">
-              Masterpieces of the House
-            </span>
-          </div>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#F8F3EC] mb-4">
             Signature Dishes
           </h2>

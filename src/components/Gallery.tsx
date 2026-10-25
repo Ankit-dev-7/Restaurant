@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import { Camera } from 'lucide-react';
 
 const imageBaseUrl = `${import.meta.env.BASE_URL}images/`;
 const galleryPhotos = [
@@ -14,12 +13,6 @@ export const Gallery: FC = () => {
       className="relative z-10 border-t border-[#39332F]/40 bg-[#0D0C0B]/60 px-6 py-24 md:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E87532]/30 bg-[#E87532]/10 px-4 py-1.5">
-            <Camera className="h-3.5 w-3.5 text-[#E87532]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#E87532]">
-              Visual Atmosphere
-            </span>
-          </div>
           <h2 className="mb-4 font-serif text-3xl font-bold text-[#F8F3EC] md:text-5xl">
             Restaurant &amp; Food Gallery
           </h2>

@@ -7,12 +7,6 @@ return(
     <section id="contact" className="py-24 px-6 md:px-12 bg-[#0D0C0B]/80 relative z-10 border-t border-[#39332F]/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 mb-4">
-            <MapPin className="w-3.5 h-3.5 text-[#E87532]" />
-            <span className="text-xs uppercase tracking-widest text-[#E87532] font-semibold">
-                Visit & Conect
-            </span>
-            </div>
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#F8F3EC] mb-4">
                 Location & Contact 
                 </h2>

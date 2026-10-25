@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Tag } from 'lucide-react';
+import { Tag } from 'lucide-react';
 
 export const Offers: React.FC = () => {
   const offers = [
@@ -24,12 +24,6 @@ export const Offers: React.FC = () => {
       className="relative z-10 border-t border-[#39332F]/40 bg-[#0D0C0B]/60 px-6 py-24 md:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E87532]/30 bg-[#E87532]/10 px-4 py-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-[#E87532]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#E87532]">
-              Special Offers &amp; Events
-            </span>
-          </div>
           <h2 className="mb-4 font-serif text-3xl font-bold text-[#F8F3EC] md:text-5xl">
             Exclusive Dining Promotions
           </h2>
@@ -73,4 +67,3 @@ export const Offers: React.FC = () => {
     </section>
   );
 };
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem, menuCategories } from '../data/menu';
-import { Plus, Utensils } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { MenuActions } from './MenuActions';
 import { DishCustomizationModal } from './DishCustomizationModal';
@@ -16,12 +16,6 @@ export const Menu: React.FC = () => {
     <section id="menu" className="py-24 px-6 md:px-12 bg-[#0D0C0B]/60 relative z-10 border-t border-[#39332F]/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 mb-4">
-            <Utensils className="w-3.5 h-3.5 text-[#E87532]" />
-            <span className="text-xs uppercase tracking-widest text-[#E87532] font-semibold">
-              Curated Culinary Selection
-            </span>
-          </div>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#F8F3EC] mb-4">
             Our Authentic Menu
           </h2>
@@ -106,4 +100,3 @@ export const Menu: React.FC = () => {
     </section>
   );
 };
-

@@ -6,12 +6,6 @@ return(
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D0C0B]/90 via-[#151311]/80 to-[#0D0C0B]/90 z-0" />
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E87532]/10 border border-[#E87532]/30 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#E87532] animate-pulse" />
-          <span className="text-xs uppercase tracking-widest text-[#E87532] font-semibold">
-            Authentic Tandoori & Fine Nepali Cuisine
-          </span>
-        </div>
         <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#F8F3EC] tracking-wide mb-6 leading-tight">
           Savor the Rich Flavors of <span className="text-[#E87532]">Tradition</span>
         </h1>
@@ -36,4 +30,3 @@ return(
             </section>
 );
 };
-
